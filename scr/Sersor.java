@@ -20,8 +20,6 @@ public class Sensor{
 		listaLpg.add(lpg);
 		listaMotion.add(motion);
 		listaSmoke.add(smoke);
-		listaTemp.add(temp);
-		listaFechas.add(fecha);
-	}
+		listaTemp.add(temp);S
 
 }
