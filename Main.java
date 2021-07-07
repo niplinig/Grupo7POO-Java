@@ -7,9 +7,16 @@ class Main {
 	
   public static void main(String[] args) {
     
-		Sensor prueba = new Sensor("Nuevo Sensor", 0.0, 0.0, true, 0.0, true, 0.0,24,"18/03/2002  15:03");
+		
+  }
 
-   System.out.println(prueba); 
+  public static void añadirDispositivo(Usuario usuario,String ID){
+    for(Sensor s:sensores){
+      if(s.getID().equals(ID)){
+        usuario.añadirDisp(s);
+      }
+    }
+    
 
   }
 }

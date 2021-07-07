@@ -13,6 +13,8 @@ class Usuario{
   }
 
 //Metodo para añadir un dispositivo a la lista
-
-
+  public void añadirDisp(Sensor sensor){
+    dispAsociados.add(sensor);
+  }
+    
 }
