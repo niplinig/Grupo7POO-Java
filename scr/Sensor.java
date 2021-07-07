@@ -15,7 +15,7 @@ public class Sensor{
 
 //Constructor de sensores
 	public Sensor(String ID, float co, float huminity, boolean light, float lpg, boolean motion, float smoke, float temp, String fecha){
-    this.ID=ID;
+    this.ID = ID;
 		this.co = co;
 		this.huminity = huminity;
 		this.light = light;
@@ -23,11 +23,47 @@ public class Sensor{
 		this.motion = motion;
 		this.smoke = smoke;
 		this.temp = temp;
-    this.fecha=fecha;
+    this.fecha =fecha;
   }
 
 //Agregar un metodo equals que compare los ID
 
 //Getter (no se necesitan Setters)
+
+public String getID() {
+	return ID;
+}
+
+public float getCo() {
+	return co;
+}
+
+public float getHuminity() {
+	return huminity;
+}
+
+public boolean getLight() {
+	return light;
+}
+
+public float getlpg() {
+	return lpg;
+}
+
+public boolean getMotion() {
+	return motion;
+}
+
+public float getSmoke() {
+	return smoke;
+}
+
+public float getTemp() {
+	return temp;
+}
+
+public String getFecha() {
+	return fecha;
+}
 
 }
