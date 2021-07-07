@@ -4,17 +4,17 @@ public class Sensor{
 //Atributos de sensores
 //Un sensor puede aparecer mas de una vez, pero son objetos diferentes porque comparten ID pero no los demás atributos
 	private String ID;
-	private float co;
-	private float huminity;
+	private double co;
+	private double huminity;
 	private boolean light;
-	private float lpg;
+	private double lpg;
 	private boolean motion;
-	private float smoke;
-	private float temp;
+	private double smoke;
+	private double temp;
 	private String fecha;
 
 //Constructor de sensores
-	public Sensor(String ID, float co, float huminity, boolean light, float lpg, boolean motion, float smoke, float temp, String fecha){
+	public Sensor(String ID, double co, double huminity, boolean light, double lpg, boolean motion, double smoke, double temp, String fecha){
     this.ID = ID;
 		this.co = co;
 		this.huminity = huminity;
@@ -34,11 +34,11 @@ public String getID() {
 	return ID;
 }
 
-public float getCo() {
+public double getCo() {
 	return co;
 }
 
-public float getHuminity() {
+public double getHuminity() {
 	return huminity;
 }
 
@@ -46,7 +46,7 @@ public boolean getLight() {
 	return light;
 }
 
-public float getlpg() {
+public double getlpg() {
 	return lpg;
 }
 
@@ -54,11 +54,11 @@ public boolean getMotion() {
 	return motion;
 }
 
-public float getSmoke() {
+public double getSmoke() {
 	return smoke;
 }
 
-public float getTemp() {
+public double getTemp() {
 	return temp;
 }
 
