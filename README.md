@@ -71,4 +71,4 @@ https://www.arquitecturajava.com/java-stream-filter-y-predicates/
 
 https://zetcode.com/java/readtext/
 
-![DiagramaUML](images/DiagramaUML.svg)
+![Notificaciones](images/Notificaciones.svg)
