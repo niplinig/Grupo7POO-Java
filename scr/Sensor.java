@@ -13,6 +13,7 @@ public class Sensor{
 	private float temp;
 	private String fecha;
 
+//Constructor de sensores
 	public Sensor(String ID, float co, float huminity, boolean light, float lpg, boolean motion, float smoke, float temp, String fecha){
     this.ID=ID;
 		this.co = co;
@@ -21,7 +22,12 @@ public class Sensor{
 		this.lpg = lpg;
 		this.motion = motion;
 		this.smoke = smoke;
-		this.temp = co;
+		this.temp = temp;
+    this.fecha=fecha;
   }
+
+//Agregar un metodo equals que compare los ID
+
+//Getter (no se necesitan Setters)
 
 }
