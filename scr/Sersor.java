@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Sensor{
 
 	String idDispositivo;
-	ArrayList <float> listaCo = new ArrayList<>();
-	ArrayList <float> listaHuminity = new ArrayList<>();
+	ArrayList <float> listaCo = new ArrayList<float>();
+	ArrayList <float> listaHuminity = new ArrayList<float>();
 	ArrayList <boolean> listaLight = new ArrayList<>();
 	ArrayList <float> listaLpg = new ArrayList<>();
 	ArrayList <boolean> listaMotion = new ArrayList<>();
