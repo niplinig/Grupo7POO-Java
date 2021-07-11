@@ -12,6 +12,7 @@ public class LectorArchivo {
     //Método que ejecuta la lectura del archivo CSV
     public static void LeerArchivo() {
     //Leemos el archivo csv mediante la clase scanner
+    //Para la correcta lectura se eliminó la primera linea del archivo csv que contenia el formato.
         try {
             File archivo = new File("/home/pop/NetBeansProjects/Main/src/main/Archivo.csv");
             Scanner lector = new Scanner(archivo);
