@@ -40,7 +40,7 @@ public class LectorArchivo {
                 motion = motion.substring(1, motion.length() - 1);
                 smoke = smoke.substring(1, smoke.length() - 1);
                 temp = temp.substring(1, temp.length() - 1);
-                fecha = fecha.substring(1, fecha.length() - 1);
+                
                 
                 //Al eliminar las comillas de exceso puedo realizar la conversión de los valores desde String a sus respectivos boolean o double.
 
