@@ -39,7 +39,7 @@ public class NotificacionPropiedadObservable extends Notificacion{
         this.maximo = max;
     }
     
-    public ArrayList<Observacion> aplicarRegla(Usuario usuario) {
+    public ArrayList<Observacion> aplicarNPO(Usuario usuario) {
         ArrayList <Observacion> listaResultante = new ArrayList<>();
         
         String propiedaElegida = this.elegirPropiedad();
