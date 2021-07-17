@@ -3,7 +3,6 @@ package main;
 import java.util.ArrayList;
 
 public class NotificacionPropiedadObservable extends Notificacion{
-    private String nombre;
     // La etiqueta nos dice el grado de importancia de la notificacion
     private String etiqueta;
     // La propiedad que el usuario selecciona de las multiples observaciones
@@ -14,7 +13,8 @@ public class NotificacionPropiedadObservable extends Notificacion{
     private int minimo = 0;
     
     // Constructor completo, inicializa los atributos del rango
-    public NotificacionPropiedadObservable(int min, String etiqueta, String propetie, int max)  {
+    public NotificacionPropiedadObservable(String nombre, int min, String etiqueta, String propetie, int max)  {
+        super(nombre);
         this.etiqueta = etiqueta;
         this.propiedad = propetie;
         this.maximo = max;
@@ -23,7 +23,8 @@ public class NotificacionPropiedadObservable extends Notificacion{
     
     // Constructor con el mínimo valor, inicializa solo él mínimo valor
     // Para realizar búsquedas con valores mayores al mínimo
-    public NotificacionPropiedadObservable(int min, String etiqueta, String propetie) {
+    public NotificacionPropiedadObservable(String nombre, int min, String etiqueta, String propetie) {
+        super(nombre);
         this.etiqueta = etiqueta;
         this.propiedad = propetie;
         this.minimo = min;
@@ -31,7 +32,8 @@ public class NotificacionPropiedadObservable extends Notificacion{
     
     // Constructor con el máximo valor, inicializa solo el máximo valor
     // Para realizar búsquedas con valores menores al máximo
-    public NotificacionPropiedadObservable(String etiqueta, String propetie, int max){
+    public NotificacionPropiedadObservable(String nombre, String etiqueta, String propetie, int max){
+        super(nombre);
         this.etiqueta = etiqueta;
         this.propiedad = propetie;
         this.maximo = max;
