@@ -2,13 +2,13 @@ package main;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
+import java.util.Comparator;
 
 public class Observacion {
     
     // Una observacion tiene una propiedad y una fecha
-    Conjunto conjunto;
-    LocalDate fecha;
+    private Conjunto conjunto;
+    private LocalDate fecha;
     
     // Método que recibe un texto que se parece a una fecha
     // Devuelve un objeto fecha a partir del texto recibido
@@ -47,4 +47,13 @@ public class Observacion {
         String Observacion = fechaEnTexto + '\n' +conjunto.toString();
         return Observacion;
     }
+    
+    public LocalDate getFecha() {
+        return this.fecha;
+    }
+    
+    public Conjunto getConjunto() {
+        return this.conjunto;
+    }
+    
 }
