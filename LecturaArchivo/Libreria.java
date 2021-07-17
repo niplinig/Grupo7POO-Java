@@ -1,50 +1,45 @@
 package main;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
+import java.util.ArrayList;
 
-public class Observacion {
+public class Libreria {
     
-    // Una observacion tiene una propiedad y una fecha
-    Conjunto conjunto;
-    LocalDate fecha;
+    // La libreria tiene la lista de todos los dispositivos disponibles
+    public static ArrayList <Dispositivo> listaDispositivos = new ArrayList<>();
     
-    // Método que recibe un texto que se parece a una fecha
-    // Devuelve un objeto fecha a partir del texto recibido
-    public static LocalDate convertirFecha(String texto) { 
-        String [] textoSeparado = texto.split(" ");
-        String fecha = textoSeparado[0];
-        String[] fechaSeparada = fecha.split("/");
-
-        String dia = fechaSeparada[0];
-        String mes = fechaSeparada[1];
-        String anio = fechaSeparada[2];
-
-        int Dia = Integer.parseInt(dia);
-        int Mes = Integer.parseInt(mes);
-        int Anio = Integer.parseInt(anio);              
-
-        LocalDate resultado = LocalDate.of(Anio, Mes, Dia);
-        
-        return resultado;
+    // Método que valida si un dispositivo existe en la listas de Dispositivos
+    // Si existe en la lista de dispositivos devuelve falso
+    // En el caso que no exista en la lista devuleve verdadero
+    public static boolean sePuedeAnadir(Dispositivo d) {
+        if (listaDispositivos.size() > 0 ) {
+            for (Dispositivo dispositivo : listaDispositivos) {
+                if (dispositivo.getCodigo().equals(d.getCodigo())) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return true;
     }
     
-    // Constructor recibe un Conjunto de propiedades y una fecha en texto
-    // Inicializa el valor del conjunto
-    // Utiliza el método convertirFecha() para convertir la fecha en texto a un objeto fecha
-    public Observacion(Conjunto conjunto, String fechaTexto) {
-        this.conjunto = conjunto;
-        this.fecha = Observacion.convertirFecha(fechaTexto);
+    public static void actualizarDispositivo(Dispositivo d) {
+        if (listaDispositivos.size() > 0 ) {
+            for (Dispositivo dispositivoEnLista : listaDispositivos) {
+                if (dispositivoEnLista.getCodigo().equals(d.getCodigo())) {
+                    ArrayList <Observacion> observacionesNuevas = d.listaObservaciones;
+                    dispositivoEnLista.listaObservaciones.addAll(observacionesNuevas);
+                }
+            }
+        }
     }
     
-    // Sobreescritura del método toString()
-    // Primero convierte el objeto fecha a texto
-    // Devuelve la fecha en texto junto con el conjunto de propiedades en texto
-    @Override
-    public String toString() {
-        String fechaEnTexto = fecha.format(DateTimeFormatter.ISO_LOCAL_DATE);
-        String Observacion = fechaEnTexto + "       " +conjunto.toString();
-        return Observacion;
+    public static void anadirDispositivo(Dispositivo d) {
+        if (sePuedeAnadir(d)) {
+            listaDispositivos.add(d);
+        }
+        else if(listaDispositivos.contains(d)) {
+            actualizarDispositivo(d);
+        }
     }
+    
 }
