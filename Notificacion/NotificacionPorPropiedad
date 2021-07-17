@@ -1,0 +1,31 @@
+package Notificacion;
+
+import Notificaciones.Notificacion;
+import java.util.ArrayList;
+import Sensores.Sensor;
+import java.io.*;
+
+public class NotificacioPorPropiedad extends Notificacion{
+    //Propiedad por la que buscare mis sensores
+    private String propiedad;
+    //Etiqueta que asignare a mis rangos de valores
+    private ArrayList <String> etiquetas;
+    private ArrayList <Rango> rangos;
+    //Como la notificación 
+    private ArrayList <Sensor> dAsoc;
+    
+    //Constructor de este tipo de notificaciones
+    public NotificacioPorPropiedad(String propiedad,ArrayList etiquetas,ArrayList rangos,ArrayList dAsoc){
+        this.propiedad=propiedad;
+        this.etiquetas=etiquetas;
+        this.rangos=rangos;
+        this.dAsoc=dAsoc;
+    }
+    
+    public void creacionArchivo(){
+        
+        
+        
+    }
+    
+}
