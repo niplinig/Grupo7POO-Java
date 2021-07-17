@@ -6,39 +6,26 @@ public class Libreria {
     
     // La libreria tiene la lista de todos los dispositivos disponibles
     public static ArrayList <Dispositivo> listaDispositivos = new ArrayList<>();
+    public static ArrayList <String> listaCodigoDispositivos = new ArrayList<>();
     
-    // Método que valida si un dispositivo existe en la listas de Dispositivos
-    // Si existe en la lista de dispositivos devuelve falso
-    // En el caso que no exista en la lista devuleve verdadero
-    public static boolean sePuedeAnadir(Dispositivo d) {
-        if (listaDispositivos.size() > 0 ) {
-            for (Dispositivo dispositivo : listaDispositivos) {
-                if (dispositivo.getCodigo().equals(d.getCodigo())) {
-                    return false;
-                }
-            }
-            return true;
+    /*
+    Método que recibe un dispositivo
+    Compara el dispositivo recibido con los dispositivos en la cadena de dispositivos
+    Verifica si el dispositivo puede ser añadido a la lista
+    Si el dispositivo no puede ser añadido significa que ya existe
+    Por lo tanto actualiza los datos del dispositivo que se encuentra en lista
+    */
+    public static void addDevice(Dispositivo nuevoDispositivo) {
+        
+        if (nuevoDispositivo.puedeSerAnadido()) {
+            listaDispositivos.add(nuevoDispositivo);
         }
-        return true;
-    }
-    
-    public static void actualizarDispositivo(Dispositivo d) {
-        if (listaDispositivos.size() > 0 ) {
+        else {
             for (Dispositivo dispositivoEnLista : listaDispositivos) {
-                if (dispositivoEnLista.getCodigo().equals(d.getCodigo())) {
-                    ArrayList <Observacion> observacionesNuevas = d.listaObservaciones;
-                    dispositivoEnLista.listaObservaciones.addAll(observacionesNuevas);
+                if (nuevoDispositivo.equals(dispositivoEnLista)) {
+                    dispositivoEnLista.listaObservaciones.addAll(nuevoDispositivo.listaObservaciones);
                 }
             }
-        }
-    }
-    
-    public static void anadirDispositivo(Dispositivo d) {
-        if (sePuedeAnadir(d)) {
-            listaDispositivos.add(d);
-        }
-        else if(listaDispositivos.contains(d)) {
-            actualizarDispositivo(d);
         }
     }
     
