@@ -100,6 +100,89 @@ public class Main {
         //Retorno un null
         return null;
     }
+    //Hasta aqui van las funciones de Acceso al sistema
+    
+    /*Una vez iniciado sesión preciso de crear 3 métodos:
+    1: Programar Notificaciones
+    2: Generar Notificaciones
+    3: Desactivar Notificaciones
+    Y uno añadido especial mio
+    4: Agregar Dispositivos Favotiros (Este método separa el código que debería
+    en programar notificaciones para que se menor)
+    5: Cerrar Sesión (Acaba el programa) necesario para la condición para loopear este menú
+    */
+    
+    public static void Menú(Usuario u, ArrayList <String> ids, ArrayList <Dispositivo> d){ /*El recibir este parámetro hace que todas las acciones
+        se redirección hacia el usuario u*/
+        String opcion=" ";
+        while(!opcion.equals(5)){
+        //Presento el menu disponible al usuario despues de iniciar sesión
+        System.out.println("1: Programar Notificaciones");
+        System.out.println("2: Generar Notificaciones");
+        System.out.println("3: Desactivar Notificaciones");
+        System.out.println("4: Agregar Dispositivos Favoritos");
+        System.out.println("5: Cerrar Sesión"); //Si escogo la opción cerrar sesión, se termina el programa
+        System.out.println("Opcion: ");
+        
+        //El usuario elige su opción
+        opcion=sc.nextLine();
+        switch(opcion){
+            case "1":
+                //programarNoti();
+                break;
+            case "2":
+                //Generar Notificaciones():
+                break;
+            case "3":
+                desactivarNotificaciones(u);
+                break;
+            case "4":
+                agregarDispositivos(u,ids,d);
+                break;
+            
+        }
+                
+        
+        
+    }
+    }
+
+    /*Método para agregar un dispositivo a los asociados a un usuario
+    * le pregunto cuantos quiere agregar al usuario y lo ejecuto
+    Verifico que el id que me de sea correcto y posterior busco el dispositivo
+    con ese ID y lo agrego a la lista de Usuario
+    */
+    public static void agregarDispositivos(Usuario u, ArrayList <String >idDisp, ArrayList <Dispositivo> d){
+        System.out.println("Cuantos dispositivos desea agregar?: ");
+        int cant=sc.nextInt();
+        for(int i=0;i<cant;i++){
+            System.out.println("Ingrese el ID del dispositivo");
+            String id=sc.nextLine();
+            if(idDisp.contains(id)){
+                for(Dispositivo dp: d){
+                    if(dp.getCodigo().equals(id)){
+                        u.vincularDispositivo(dp);
+                        System.out.println("El dispositivo a sido agregado");
+                    }                 
+                }
+            }else{
+                System.out.println("Dispositivo no encontrado");
+            }
+        }            
+    }
+    
+    public static void desactivarNotificaciones(Usuario u){
+        System.out.println("Ingrese el nombre de la notificación a desactivar");
+        String nombre=sc.nextLine();
+        for(Object n: u.getListNotis()){
+            Notificacion n2=(Notificacion) n;
+            if(n2.getNombre().equals(nombre)){
+                n2.desactivarNoti();
+            }
+            
+        }
+        
+    }
     
     
        
