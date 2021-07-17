@@ -78,4 +78,45 @@ public class Conjunto {
         
         return new Conjunto(CO, HUMIDITY, LIGHT, LPG, MOTION, SMOKE, TEMP);
     }
+
+    public double getPropiedadDouble(String propiedad) {
+        
+        double resultado;
+        resultado = 0;
+        
+        switch (propiedad) {
+            case "co":
+                resultado = co;
+                break;
+            case "humidity":
+                resultado = humidity;
+                break;
+            case "lpg":
+                resultado = lpg;
+                break;
+            case "smoke":
+                resultado = smoke;
+                break;
+            case "temp":
+                resultado = temp;
+                break;
+        }
+        return resultado;
+    }
+
+    public boolean getPropiedadBoolean(String propiedad) {
+        
+        boolean resultado;
+        resultado = false;
+        
+        switch (propiedad) {
+            case "light":
+                resultado = light;
+                break;
+            case "motion":
+                resultado = motion;
+                break;
+        }
+        return resultado;
+    }
 }
