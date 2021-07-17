@@ -1,6 +1,9 @@
 package main;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.stream.Collector;
 
 public class Dispositivo {
     
@@ -66,5 +69,15 @@ public class Dispositivo {
             Libreria.listaCodigoDispositivos.add(this.codigo);
             return true;
         }
+    }
+    
+    public ArrayList <LocalDate> getFechas() {
+        
+        ArrayList <LocalDate> listaFechas = new ArrayList<>();
+        
+        for (Observacion observacionEnLista: listaObservaciones) {
+            listaFechas.add(observacionEnLista.getFecha());
+        }
+        return listaFechas;
     }
 }
