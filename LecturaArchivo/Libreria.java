@@ -8,8 +8,4 @@ public class Libreria {
     public static ArrayList <Dispositivo> listaDispositivos = new ArrayList<>();
     public static ArrayList <String> listaCodigoDispositivos = new ArrayList<>();
 
-    static void listaDispositivos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 }
