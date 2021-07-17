@@ -39,8 +39,8 @@ public class LectorArchivo {
                             lineaSeparada[8]);
                     
                     Observacion observacion = new Observacion(conjunto, lineaSeparada[9]);
-                    Dispositivo dispositivo = new Dispositivo(lineaSeparada[1], observacion);
-                    Libreria.anadirDispositivo(dispositivo);
+                    Dispositivo dispositivo = Dispositivo.crearDispositivo(lineaSeparada[1], observacion);
+                    Libreria.listaDispositivos.add(dispositivo);
                 }
                 miEscaner.close();
             }
