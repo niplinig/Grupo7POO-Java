@@ -6,9 +6,16 @@ import java.util.ArrayList;
 public class NotificacionDispositivo extends Notificacion{
 
     private ArrayList <NotificacionPropiedadObservable> Reglas;
-    private LocalDate[] RangoFechas;
+    private LocalDate fechaInicial;
+    private LocalDate fechaFinal;
 
-    public ArrayList<Observacion> tomarUnRango(Usuario usuario, LocalDate fechaInicial, LocalDate fechaFinal) {
+    public NotificacionDispositivo(String nombre, LocalDate fechaInicial, LocalDate fechaFinal) {
+        super(nombre);
+        this.fechaInicial = fechaInicial;
+        this.fechaFinal = fechaFinal;
+    }
+
+    public ArrayList<Observacion> tomarUnRango(Usuario usuario) {
         
         ArrayList <Observacion> listaResultante = new ArrayList<>();
         
