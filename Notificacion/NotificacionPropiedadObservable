@@ -9,9 +9,9 @@ public class NotificacionPropiedadObservable extends Notificacion{
     // La propiedad que el usuario selecciona de las multiples observaciones
     private String propiedad;
     // El valor máximo
-    private int maximo;
+    private int maximo = 0;
     // El valor mínimo
-    private int minimo;
+    private int minimo = 0;
     
     // Constructor completo, inicializa los atributos del rango
     public NotificacionPropiedadObservable(int min, String etiqueta, String propetie, int max)  {
@@ -42,31 +42,49 @@ public class NotificacionPropiedadObservable extends Notificacion{
         
         String propiedaElegida = this.elegirPropiedad();
         
-        if (propiedaElegida.equals("double")) {
-            if (!usuario.getListDisp().isEmpty()) {
+        if (!usuario.getListDisp().isEmpty()) {
+            
+            if (propiedaElegida.equals("double") ) {
+                
                 for (Dispositivo dispositivos : usuario.getListDisp()) {
+                    
                     for (Observacion observacion: dispositivos.listaObservaciones) {
-                        if (minimo < observacion.getConjunto().getPropiedadDouble(propiedad) && observacion.getConjunto().getPropiedadDouble(propiedad) < maximo) {
-                            listaResultante.add(observacion);
+                        
+                        if (minimo > 0 && maximo > 0) {
+                            if(minimo < observacion.getConjunto().getPropiedadDouble(propiedad) && observacion.getConjunto().getPropiedadDouble(propiedad) < maximo) {
+                                listaResultante.add(observacion);
+                            }
+                        }
+                        
+                        else if (minimo > 0 && maximo == 0) {
+                            if (minimo < observacion.getConjunto().getPropiedadDouble(propiedad)) {
+                                listaResultante.add(observacion);
+                            }
+                        }
+                        
+                        else if (minimo == 0 && maximo > 0) {
+                            if (observacion.getConjunto().getPropiedadDouble(propiedad) < maximo) {
+                                listaResultante.add(observacion);
+                            }
                         }
                     }
                 }
-            }        
-            return listaResultante;
-        }
-        
-        else if (propiedaElegida.equals("boolean")) {
-            if (!usuario.getListDisp().isEmpty()) {
+            }
+            
+            else if (propiedaElegida.equals("boolean")) {
+                
                 for (Dispositivo dispositivos : usuario.getListDisp()) {
+
                     for (Observacion observacion: dispositivos.listaObservaciones) {
+
                         if (observacion.getConjunto().getPropiedadBoolean(propiedad) == true) {
+
                             listaResultante.add(observacion);
                         }
                     }
                 }
-            }        
-            return listaResultante;
-        }
+            }
+        }        
         return listaResultante;
     }
     
