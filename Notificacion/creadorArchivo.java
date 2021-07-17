@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class CreadroArchivo {
     public String texto;
-    public String nombreArch;
+    public String nombreArch; // Nombre archvio con ruta. Ej: "notificaciones.txt"
     
 
     
