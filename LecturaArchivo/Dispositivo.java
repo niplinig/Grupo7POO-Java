@@ -22,7 +22,7 @@ public class Dispositivo {
     public String toString() {
         String Dispositivo = this.codigo;
         for (Observacion observacion: listaObservaciones) {
-            Dispositivo = Dispositivo + '\n' + observacion.toString();
+            Dispositivo += '\n' + observacion.toString();
         }
         return Dispositivo;
     }
@@ -36,5 +36,35 @@ public class Dispositivo {
     // Método para obtener el código del dispositivo
     public String getCodigo() {
         return this.codigo;
-    } 
+    }
+    
+    public static Dispositivo crearDispositivo(String codigo, Observacion observacion) {
+        if (Libreria.listaCodigoDispositivos.contains(codigo)) {
+            int index = Libreria.listaCodigoDispositivos.indexOf(codigo);
+            Dispositivo dispositivo = Libreria.listaDispositivos.get(index);
+            dispositivo.listaObservaciones.add(observacion);
+            return dispositivo;
+        }
+        else {
+            return new Dispositivo(codigo, observacion);
+        }
+    }
+    
+    // Método que valida si el dispositivo se puede añadir a la librería de dispositivos
+    // Si el objeto ya existe en la librería no lo vuelve añadir
+    public boolean puedeSerAnadido() {
+        if (Libreria.listaCodigoDispositivos.size() > 0) {
+                if (!Libreria.listaCodigoDispositivos.contains(this.codigo)) {
+                    Libreria.listaCodigoDispositivos.add(this.codigo);
+                    return true;
+                }
+                else {
+                    return false;
+                }  
+        }
+        else {
+            Libreria.listaCodigoDispositivos.add(this.codigo);
+            return true;
+        }
+    }
 }
