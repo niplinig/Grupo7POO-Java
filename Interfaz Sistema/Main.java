@@ -48,7 +48,7 @@ public class Main {
     
     
     /*Acceso es el método que le permite al usuario elegir entre si desea
-    registrarse o iniciar sesión al momento que se corre el programa
+    registrarse o iniciar sesión al momento que de correr el programa
     */
     public static Usuario Acceso(){
         System.out.println("1-Registro de Usuario");
