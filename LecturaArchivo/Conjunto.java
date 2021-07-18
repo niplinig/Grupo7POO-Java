@@ -2,7 +2,7 @@ package LecturaArchivo;
 
 public class Conjunto {
     
-    // Una conjunto de propiedades tiene 7 propiedades en total
+    // Una conjunto de propiedades tiene 7 propiedades en total.
     private double co;
     private double humidity;
     private double lpg;
@@ -49,8 +49,8 @@ public class Conjunto {
     
     // Método que recibe las propiedades observables como una cadena de texto.
     // A esta cadena de texto se le subtrae el primer y último caracter.
-    // Después se pasa su valor de cadena de texto como un valor decimal o booleano
-    // Como resultado devuelve una nueva observacion
+    // Después se pasa su valor de cadena de texto como un valor decimal o booleano.
+    // Como resultado devuelve una nueva observacion.
     public static Conjunto convertirTexto(
         String Co,
         String Humidity,
