@@ -187,9 +187,13 @@ public class Main {
             i--;
         }            
     }
+    /*Método para desactivar una notificacion que el usuiario ingrese por
+    teclado, se verifica si la notificación existe en una lista de 
+    notifiaciones para desactivarla.
+    */
     
     public static void desactivarNotificaciones(Usuario u){
-        System.out.println("Ingrese el nombre de la notificación a desactivar");
+        System.out.println("Ingrese el nombre de la notificación a desactivar: ");
         String nombre=sc.nextLine();
         for(Object n: u.getListNotis()){
             Notificacion n2=(Notificacion) n;
@@ -198,10 +202,19 @@ public class Main {
             }
             
         }
-        
+         
     }
+    /*Método para que el usuario pueda programar una notifiacion, se 
+    solicita un nombre para la misma y luego se le pregunta qué tipo 
+    de notifiacion quiere añadir.
+    En caso de ser "Por Dispositivo" se solicita un ID del dispositivo y se crea
+    una nueva notificacion con el nombre de notifiacion y el ID. Si es "Por Propiedad
+    Observable" se le solicita una propiedad observable, una etiqueta para ser clasificada
+    y valores para establecer un rango maximo y minimo. En ambos casos se
+    realiza una validacion de ID o propiedad observable respectivamente.
+    */
     public static void programarNoti(Usuario u, ArrayList <String> ids){
-        System.out.println("Ingrese el nombre de la notificacion");
+        System.out.println("Ingrese el nombre de la notificacion: ");
         String nombre=sc.nextLine();
         
         System.out.println("Tipo de notificación");
@@ -253,7 +266,9 @@ public class Main {
         
         
     }
-    
+     /*Método para generar un archivo con las notificaciones que pertenezcan 
+     a un rango establecido de fechas por el usuario.
+    */
     public static void generarNotificaciones(Usuario u){
         System.out.println("Ingrese la fecha inicial");
         System.out.println("Dia: ");
