@@ -1,8 +1,5 @@
 package main;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 public class NotificacionDispositivo extends Notificacion{
 
     Dispositivo dispositivo;
