@@ -25,6 +25,7 @@ public class Notificacion {
     public String getNombre(){
         return nombre;
     }
+    //Método que crea un Arreglo de Observaciones y lo devuelve
     public ArrayList<Observacion> establecerRango(Usuario u, double min, double max){
         return new ArrayList <Observacion>();
     }
