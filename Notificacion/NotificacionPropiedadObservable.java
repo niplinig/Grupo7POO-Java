@@ -20,8 +20,13 @@ public class NotificacionPropiedadObservable extends Notificacion {
         this.propiedad = propiedad;
         this.max=max;
         this.min=min;
-                
     }
+   public NotificacionPropiedadObservable(String nombre, String propiedad, String valorBoleano) {
+        super(nombre);
+        this.propiedad = propiedad;
+        this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
+    }           
+    
     
     // Método que recibe un Usuario.
     // Primero revisa que la lista de dispositivos del Usuario no esté vacia
