@@ -1,1 +1,9 @@
+
 Las carpetas ejemplifican los paquetes del programa 
+
+Los id de los dispositivos, si se usa el archivo io.telemetry.data deben ir entre comillas
+
+Al ser un archivo bastante grande demora el programa en compilar pero lo hace de manera correcta
+
+Cada vez que se genera un archivo se muestra una pantalla de "Archivo creado" en netbeans, si no le salta en principal porfavor minimice todas las ventanas que posee y aparece
+una vez da en aceptar el programa continua
