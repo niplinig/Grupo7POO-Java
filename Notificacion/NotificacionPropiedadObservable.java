@@ -23,12 +23,13 @@ public class NotificacionPropiedadObservable extends Notificacion {
                 
     }
     
-    public NotificacionPropiedadObservable(String nombre, String propiedad, String valorBoleano) {
-        super(nombre);
-        this.propiedad = propiedad;
-        this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
-    }
-    
+    // Método que recibe un Usuario
+    // Primero revisa que la lista de dispositivos del Usuario no esté vacia
+    // Despues se valida si es una propiedad double o boolean
+    // Una vez validad la propiedad se realiza un recorrido de los dispostivos
+    // Despues se rrecorre la lista de observaciones del dispostivio
+    // Y por último se valida la propiedad que cumpla con los parametros dados
+    // Devulve las observaciones que cumplen con la propiedad
     public ArrayList<Observacion> establecerRango(Usuario usuario) {
         
         ArrayList <Observacion> listaResultante = new ArrayList<>();
@@ -80,7 +81,8 @@ public class NotificacionPropiedadObservable extends Notificacion {
         }        
         return listaResultante;
     }
-    
+    // Método que diferencia entre los tipos de propiedades observables
+    // se los clasifica por su tipo de dato 
     public String elegirPropiedad() {  
         
         String propiedadElegida;
