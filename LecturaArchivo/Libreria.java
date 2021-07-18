@@ -9,6 +9,7 @@ public class Libreria {
     public static ArrayList <Dispositivo> listaDispositivos = new ArrayList<>();
     public static ArrayList <String> listaCodigoDispositivos = new ArrayList<>();
     
+    // En caso de un dispositivo no estar en la lista es añadido, caso contrario se actualiza
     public static void anadirDispositivo(Dispositivo device) {
         if (device.puedeSerAnadido()) {
             listaDispositivos.add(device);
