@@ -8,7 +8,7 @@ public class Usuario {
     private ArrayList <Dispositivo> dispAsociados=new ArrayList<>();
     private ArrayList <Notificacion> nProgramadas=new ArrayList<>();
     
-    /*Constructor, solo preciso del id para crear un usuario (A se llamado en
+    /*Constructor, solo se necesita el id para crear un usuario (Se llama en
     Registrarse()
     */
     public Usuario(String id){
