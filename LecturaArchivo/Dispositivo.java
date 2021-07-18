@@ -32,7 +32,7 @@ public class Dispositivo {
     }
     
     // Sobrecarga del Método equals()
-    // Compara si los dos dispositivos tienen el mismo código
+    // Compara si los dos dispositivos tienen el mismo código.
     public boolean equals(Dispositivo d) {
         return this.codigo.equals(d.codigo);
     }
