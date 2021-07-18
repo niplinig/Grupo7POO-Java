@@ -1,23 +1,36 @@
-package main;
-
+package Notificacion;
+import LecturaArchivo.Observacion;
+import java.util.ArrayList;
+import Usuario.Usuario;
 
 public class Notificacion {
-    private Boolean estatus = true;
-    private String nombre;
+    //Nombre para identificar y diferenciar las notificaciones en la lista del Usuario
+    protected String nombre;
+    //Toda notificacion empieza con un estado true
+    protected boolean status=true;
     
-    public void desactivarNotificacion() {
-        estatus = false;
+    //Constructor de la notificación en su forma básica
+    public Notificacion(String n){
+        nombre=n;
+        
     }
-
-    public Boolean getEstatus() {
-        return estatus;
+       
+    //Método para desactivar la notificación
+    public void desactivarNoti(){
+        status=false;
     }
-
-    public String getNombre() {
+    public boolean getStatus(){
+        return status;
+    }
+    public String getNombre(){
         return nombre;
     }
-
-    public Notificacion(String nombre) {
-        this.nombre = nombre;
+    public ArrayList<Observacion> establecerRango(Usuario u, double min, double max){
+        return new ArrayList <Observacion>();
     }
+    
+    public String toString(){
+        return "vacio";
+    }
+    
 }
