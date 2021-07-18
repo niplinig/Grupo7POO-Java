@@ -5,30 +5,16 @@ import java.util.ArrayList;
 
 public class NotificacionDispositivo extends Notificacion{
 
-    private LocalDate fechaInicial;
-    private LocalDate fechaFinal;
-
-        
+    Dispositivo dispositivo;
     
-    public NotificacionDispositivo(String nombre, LocalDate fechaInicial, LocalDate fechaFinal) {
+    public NotificacionDispositivo(String nombre, String codigoDispositivo) {
         super(nombre);
-        this.fechaInicial = fechaInicial;
-        this.fechaFinal = fechaFinal;
+        int indice = Libreria.listaDispositivos.indexOf(codigoDispositivo);
+        this.dispositivo = Libreria.listaDispositivos.get(indice);
     }
-
-    public ArrayList<Observacion> tomarUnRango(Usuario usuario, Dispositivo dispositivo) {
-        
-        ArrayList <Observacion> listaResultante = new ArrayList<>();
-        
-        if (!usuario.getListDisp().isEmpty()) {
-            for (Dispositivo dispositivos : usuario.getListDisp()) {
-                for (Observacion observacion: dispositivos.listaObservaciones) {
-                    if (observacion.getFecha().isAfter(fechaInicial) && observacion.getFecha().isBefore(fechaFinal)) {
-                        listaResultante.add(observacion);
-                    }
-                }
-            }
-        }        
-        return listaResultante;
+    
+    public NotificacionDispositivo(String nombre, Dispositivo dispositivo) {
+        super(nombre);
+        this.dispositivo = dispositivo;
     }
 }
