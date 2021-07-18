@@ -31,8 +31,8 @@ public class Main {
         LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
         miArchivo.LeerArchivo();
         
-        /*Traigo desde libreria mis listas que poseen los dispositivos y sus observaciones,
-        y una lista que posee todos los códigos de los dispositivos (importante para 
+        /*Se trae desde libreria las listas que poseen los dispositivos y sus observaciones,
+        y una lista que posee todos los códigos de los dispositivos (importante para realizar 
         validaciones)
         */
         for(String s: Libreria.listaCodigoDispositivos){
@@ -52,7 +52,7 @@ public class Main {
     
     
     /*Acceso es el método que le permite al usuario elegir entre si desea
-    registrarse o iniciar sesión al momento que se corre el programa
+    registrarse o iniciar sesión al momento que de correr el programa
     */
     public static Usuario Acceso(){
         System.out.println("1-Registro de Usuario");
@@ -65,15 +65,15 @@ public class Main {
         Registrarse();
         break;
         case "2":
-        /*Retorno un usuario U dado que es aquel sobre el cual trabajaré,
-        para vincular sus dispositivos favoritos a él y las notificaciones que el genere. 
+        /*Retorno un usuario U dado que es aquel sobre el cual se va a trabajar,
+        para vincular sus dispositivos favoritos y las notificaciones que el quiera generar. 
         */
         u=IniciarSesion();
         break;
         }
-        /*Si el usuario eligió la opción de iniciar sesión, y no se encontró dicho usuario
+        /*Si el usuario elige la opción de iniciar sesión, y no se encontra dicho usuario
         IniciarSesion retorna null, mientras U no sea un objeto en condiciones, mediante
-        recursividad sigo ejecutando Acceso(), hasta que se registre un usuario y se ingrese
+        recursividad se sigue ejecutando Acceso(), hasta que se registre un usuario e ingrese
         de manera correcta.
         */
         while(u==null){
@@ -96,12 +96,12 @@ public class Main {
         System.out.println();
     }
     public static Usuario IniciarSesion(){
-        //Le pido al usuario que inrgrese su ID
+        //Se le pide al usuario que inrgrese su ID
         System.out.println("Ingrese su id:");
         String id=sc.nextLine();
-        /*Busco si esta registrado si lo esta retorno el usuario
-        para ello recorro mis usuarios registrados y comparo los id, si coincide con alguno
-        existe y retorno dicho usuario para tratarlo como variable local.
+        /*Busca si el usuario está registrado, si lo esta retorna el usuario
+        para ello se recorren los usuarios registrados y se ccomparan las id, 
+        si existe retorna dicho usuario para tratarlo como variable local.
         */
         for(Usuario u:usuariosRegistrados){
             if(u.getID().equals(id)){
@@ -110,8 +110,8 @@ public class Main {
                 return u;
             }           
         }
-      /*Si en el loop for no encuentro un usuario existente
-        muestro un mensaje de error y retorno nulo, por lo cual no puedo trabajar con eso
+      /*Si en el loop for no se encuentra un usuario existente, se
+        muestra un mensaje de error y retorna null.
         */
        System.out.println("Usuario no encontrado");
        System.out.println();
@@ -121,7 +121,7 @@ public class Main {
     
     //Hasta aqui van las funciones de Acceso al sistema
     
-    /*Una vez iniciado sesión preciso de crear 3 métodos:
+    /*
     1: Programar Notificaciones
     2: Generar Notificaciones
     3: Desactivar Notificaciones
@@ -166,10 +166,10 @@ public class Main {
     }
     }
 
-    /*Método para agregar un dispositivo a los asociados a un usuario
-    * le pregunto cuantos quiere agregar al usuario y lo ejecuto
-    Verifico que el id que me de sea correcto y posterior busco el dispositivo
-    con ese ID y lo agrego a la lista de Usuario
+    /*Método para agregar un dispositivo a los asociados a un usuario.
+    Se pregunta cuantos dispositivos quiere agregar al usuario y se ejecuta
+    Se verifica que el id que ingresado sea correcto y posterior se busca el dispositivo
+    con ese ID y se agrega a la lista de Usuario
     */
     public static void agregarDispositivos(Usuario u, ArrayList <String >idDisp, ArrayList <Dispositivo> d){
         System.out.println("Cuantos dispositivos desea agregar?: ");
@@ -194,6 +194,10 @@ public class Main {
             i--;
         }            
     }
+      /*Método para desactivar una notificacion que el usuiario ingrese por
+    teclado, se verifica si la notificación existe en una lista de 
+    notifiaciones para desactivarla.
+    */
     
     public static void desactivarNotificaciones(Usuario u){
         System.out.println("Ingrese el nombre de la notificación a desactivar");
@@ -208,6 +212,15 @@ public class Main {
         System.out.println("Desactivada correctamente");
         
     }
+      /*Método para que el usuario pueda programar una notifiacion, se 
+    solicita un nombre para la misma y luego se le pregunta qué tipo 
+    de notifiacion quiere añadir.
+    En caso de ser "Por Dispositivo" se solicita un ID del dispositivo y se crea
+    una nueva notificacion con el nombre de notifiacion y el ID. Si es "Por Propiedad
+    Observable" se le solicita una propiedad observable, una etiqueta para ser clasificada
+    y valores para establecer un rango maximo y minimo. En ambos casos se
+    realiza una validacion de ID o propiedad observable respectivamente.
+    */
     public static void programarNoti(Usuario u, ArrayList <String> listaCodigosDispositivos){
         System.out.println("Ingrese el nombre de la notificacion");
         String nombre=sc.nextLine();
@@ -286,7 +299,9 @@ public class Main {
         
         
     }
-    
+     /*Método para generar un archivo con las notificaciones que pertenezcan 
+     a un rango establecido de fechas por el usuario.
+    */
     public static void generarNotificaciones(Usuario u){
         System.out.println("Ingrese la fecha inicial");
         System.out.println("Dia: ");
