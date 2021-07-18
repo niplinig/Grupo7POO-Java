@@ -67,9 +67,9 @@ public class Main {
         u=IniciarSesion();
         break;
         }
-        /*Si el usuario eligió la opción de iniciar sesión, y no se encontró dicho usuario
+        /*Si el usuario elige la opción de iniciar sesión, y no se encontra dicho usuario
         IniciarSesion retorna null, mientras U no sea un objeto en condiciones, mediante
-        recursividad sigo ejecutando Acceso(), hasta que se registre un usuario y se ingrese
+        recursividad se sigue ejecutando Acceso(), hasta que se registre un usuario e ingrese
         de manera correcta.
         */
         while(u==null){
