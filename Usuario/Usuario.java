@@ -14,7 +14,7 @@ public class Usuario {
     public Usuario(String id){
         this.id=id;
     }
-    //Getters de los atributos de la clase Usuario
+    
      public String getID(){
         return id;
     }
