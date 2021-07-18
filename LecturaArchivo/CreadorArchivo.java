@@ -6,6 +6,9 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 public class CreadorArchivo {
+    // Método para crear un archivo,
+    // Recibe como parámetros el texto a escrivbirse en el documento y el 
+    // nombre del archivo con su respectivo tipo de texto
     public static void guardarArchivo(String texto,String nombre) {
         try {
             FileWriter fw = new FileWriter(nombre,true);
