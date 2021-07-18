@@ -42,6 +42,8 @@ public class Dispositivo {
         return this.codigo;
     }
     
+    // Crea los dispositivos si está en la lista de dispositivos no se crea solo se actualiza
+    // Si el dispositivo no esta creado se crea utilizando el constructor
     public static Dispositivo crearDispositivo(String codigo, Observacion observacion) {
         if (Libreria.listaCodigoDispositivos.contains(codigo)) {
             int index = Libreria.listaCodigoDispositivos.indexOf(codigo);
