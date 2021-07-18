@@ -1,7 +1,8 @@
-package main;
+package Usuario;
 
+import Notificacion.Notificacion;
+import LecturaArchivo.Dispositivo;
 import java.util.ArrayList;
-
 public class Usuario {
     private String id;
     private ArrayList <Dispositivo> dispAsociados=new ArrayList<>();
@@ -17,10 +18,10 @@ public class Usuario {
      public String getID(){
         return id;
     }
-     public ArrayList getListDisp(){
+     public ArrayList <Dispositivo> getListDisp(){
         return dispAsociados;
     }
-    public ArrayList getListNotis(){
+    public ArrayList <Notificacion> getListNotis(){
         return nProgramadas;
     }
     
@@ -29,6 +30,7 @@ public class Usuario {
     public void vincularDispositivo(Dispositivo d){
         dispAsociados.add(d);
     }
+    
     public void añadirNoti(Notificacion n){
         nProgramadas.add(n);
     }
