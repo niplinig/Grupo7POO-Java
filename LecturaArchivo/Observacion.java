@@ -31,8 +31,8 @@ public class Observacion {
         return resultado;
     }
     
-    // Constructor recibe un Conjunto de propiedades y una fecha en texto
-    // Inicializa el valor del conjunto
+    // Constructor recibe un Conjunto de propiedades y una fecha en texto.
+    // Inicializa el valor del conjunto.
     // Utiliza el método convertirFecha() para convertir la fecha en texto a un objeto fecha
     public Observacion(Conjunto conjunto, String fechaTexto) {
         this.conjunto = conjunto;
