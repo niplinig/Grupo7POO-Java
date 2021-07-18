@@ -130,12 +130,13 @@ public class Main {
     public static void Menu(Usuario u, ArrayList <String> ids, ArrayList <Dispositivo> d){ /*El recibir este parámetro hace que todas las acciones
         se redirección hacia el usuario u*/
         String opcion=" ";
-        while(!opcion.equals(2)){
+        while(!opcion.equals("5")){
         //Presento el menu disponible al usuario despues de iniciar sesión
         System.out.println("1: Programar Notificaciones");
         System.out.println("2: Generar Notificaciones");
         System.out.println("3: Desactivar Notificaciones");
         System.out.println("4: Agregar Dispositivos Favoritos");
+        System.out.println("5: Cerrar Programa");
         System.out.println("Opcion: ");
         
         //El usuario elige su opción
@@ -337,7 +338,7 @@ public class Main {
                 }
                 System.out.println("Notificacion creada en carpeta Proyecto de NetBeans");
                 CreadorArchivo.guardarArchivo(texto, n.getNombre()+".txt");
-                sc.close();
+                
                 
                 
                 
@@ -351,7 +352,7 @@ public class Main {
                 }
                 System.out.println("Notificacion creada en carpeta Proyecto de NetBeans");
                 CreadorArchivo.guardarArchivo(texto, n.getNombre()+".txt");
-                sc.close();
+                
                 
             }
        }
