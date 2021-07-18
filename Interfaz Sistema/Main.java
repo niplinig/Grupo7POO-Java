@@ -61,8 +61,8 @@ public class Main {
         Registrarse();
         break;
         case "2":
-        /*Retorno un usuario U dado que es aquel sobre el cual trabajaré,
-        para vincular sus dispositivos favoritos a él y las notificaciones que el genere. 
+        /*Retorno un usuario U dado que es aquel sobre el cual se va a trabajar,
+        para vincular sus dispositivos favoritos y las notificaciones que el quiera generar. 
         */
         u=IniciarSesion();
         break;
