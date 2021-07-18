@@ -14,4 +14,9 @@ public class NotificacionDispositivo extends Notificacion{
         super(nombre);
         this.dispositivo = dispositivo;
     }
+    
+    public Dispositivo getDispositivo() {
+        return dispositivo;
+    }
+    
 }
