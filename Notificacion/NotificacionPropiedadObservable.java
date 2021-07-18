@@ -1,26 +1,35 @@
-package main;
+package Notificacion;
 
+import Notificacion.Notificacion;
+import LecturaArchivo.Observacion;
+import LecturaArchivo.Dispositivo;
 import java.util.ArrayList;
+import Usuario.Usuario;
 
 public class NotificacionPropiedadObservable extends Notificacion {
 
-    private ArrayList<String> listaEtiquetas = new ArrayList<>();
+    private String Etiquetas;
     private String propiedad;
+    private double max;
+    private double min;
     
     private boolean propiedadBooleana;
     
-    public NotificacionPropiedadObservable(String nombre, String propetie) {
+    public NotificacionPropiedadObservable(String nombre, String propiedad,double min, double max) {
         super(nombre);
         this.propiedad = propiedad;
+        this.max=max;
+        this.min=min;
+                
     }
-       
-    public NotificacionPropiedadObservable(String nombre, String etiqueta, String propiedad, String valorBoleano) {
+    /*  
+    public NotificacionPropiedadObservable(String nombre, String propiedad, String valorBoleano) {
         super(nombre);
         this.propiedad = propiedad;
         this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
-    }
+    }*/
     
-    public ArrayList<Observacion> establecerRango(Usuario usuario, double minimo, double maximo) {
+    public ArrayList<Observacion> establecerRango(Usuario usuario) {
         
         ArrayList <Observacion> listaResultante = new ArrayList<>();
         
@@ -34,20 +43,20 @@ public class NotificacionPropiedadObservable extends Notificacion {
                     
                     for (Observacion observacion: dispositivos.listaObservaciones) {
                         
-                        if (minimo > 0 && maximo > 0) {
-                            if(minimo < observacion.getConjunto().getPropiedadDouble(propiedad) && observacion.getConjunto().getPropiedadDouble(propiedad) < maximo) {
+                        if (this.min > 0 && this.max> 0) {
+                            if(this.min < observacion.getConjunto().getPropiedadDouble(propiedad) && observacion.getConjunto().getPropiedadDouble(propiedad) < this.max) {
                                 listaResultante.add(observacion);
                             }
                         }
                         
-                        else if (minimo > 0 && maximo == 0) {
-                            if (minimo < observacion.getConjunto().getPropiedadDouble(propiedad)) {
+                        else if (this.min> 0 && this.max == 0) {
+                            if (this.min < observacion.getConjunto().getPropiedadDouble(propiedad)) {
                                 listaResultante.add(observacion);
                             }
                         }
                         
-                        else if (minimo == 0 && maximo > 0) {
-                            if (observacion.getConjunto().getPropiedadDouble(propiedad) < maximo) {
+                        else if (this.min == 0 && this.max > 0) {
+                            if (observacion.getConjunto().getPropiedadDouble(propiedad) < this.max) {
                                 listaResultante.add(observacion);
                             }
                         }
