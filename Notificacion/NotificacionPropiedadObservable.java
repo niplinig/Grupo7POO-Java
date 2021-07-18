@@ -29,7 +29,7 @@ public class NotificacionPropiedadObservable extends Notificacion {
         this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
     }*/
     
-    // Metodo
+ 
     public ArrayList<Observacion> establecerRango(Usuario usuario) {
         
         ArrayList <Observacion> listaResultante = new ArrayList<>();
