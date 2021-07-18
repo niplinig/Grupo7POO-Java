@@ -11,8 +11,8 @@ public class Dispositivo {
     private String codigo;
     public ArrayList <Observacion> listaObservaciones = new ArrayList<>();
     
-    // Consturctor que recibe un código y una lista de observaciones
-    // Inicializa los valores del codigo y el de la lista de observaciones
+    // Consturctor que recibe un código y una lista de observaciones.
+    // Inicializa los valores del codigo y el de la lista de observaciones.
     public Dispositivo(String codigo, Observacion observacion) {
         this.codigo = codigo;
         listaObservaciones.add(observacion);
@@ -20,8 +20,8 @@ public class Dispositivo {
     }
     
     // Sobreescritura del Método toString()
-    // Primero se muestra el codigo del dispositivo
-    // Despues se muestra cada una de las observaciones de la lista
+    // Primero se muestra el codigo del dispositivo.
+    // Despues se muestra cada una de las observaciones de la lista.
     @Override
     public String toString() {
         String Dispositivo = this.codigo;
