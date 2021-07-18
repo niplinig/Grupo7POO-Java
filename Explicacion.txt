@@ -1,7 +1,8 @@
 
 Las carpetas ejemplifican los paquetes del programa 
 
-Los id de los dispositivos, si se usa el archivo io.telemetry.data deben ir entre comillas
+Los id de los dispositivos, si se usa el archivo io.telemetry.data, hay variaciones si esta en un sistema operativo Linux deben ir sin comillas, si esta en windows entre comillas.
+La razon es que al formar substrings del archivo, Linux solo pide reducir 1 elemento por lado, pero windows pide 2.
 
 Al ser un archivo bastante grande demora el programa en compilar pero lo hace de manera correcta
 
