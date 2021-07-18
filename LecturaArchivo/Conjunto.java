@@ -1,4 +1,4 @@
-package main;
+package LecturaArchivo;
 
 public class Conjunto {
     
@@ -60,13 +60,13 @@ public class Conjunto {
         String Smoke,
         String Temp
         ) {
-        Co = Co.substring(1, Co.length() - 1);
-        Humidity = Humidity.substring(1, Humidity.length() - 1);
-        Light = Light.substring(1, Light.length() - 1);
-        Lpg = Lpg.substring(1, Lpg.length() - 1);
-        Motion = Motion.substring(1, Motion.length() - 1);
-        Smoke = Smoke.substring(1, Smoke.length() - 1);
-        Temp = Temp.substring(1, Temp.length() - 1);
+        Co = Co.substring(2, Co.length() - 2);
+        Humidity = Humidity.substring(2, Humidity.length() - 2);
+        Light = Light.substring(2, Light.length() - 2);
+        Lpg = Lpg.substring(2, Lpg.length() - 2);
+        Motion = Motion.substring(2, Motion.length() - 2);
+        Smoke = Smoke.substring(2, Smoke.length() - 2);
+        Temp = Temp.substring(2, Temp.length() - 2);
         
         double CO = Double.parseDouble(Co);
         double HUMIDITY = Double.parseDouble(Humidity);
