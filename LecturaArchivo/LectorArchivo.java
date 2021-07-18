@@ -12,6 +12,8 @@ public class LectorArchivo {
     Scanner miEscaner;
     private final String ruta;
     
+    
+    // Constructor que recibe la ruta de archivo
     public LectorArchivo(String rutaDelArchivo) {
         miArchivo = new File(rutaDelArchivo);
         this.ruta = rutaDelArchivo;
