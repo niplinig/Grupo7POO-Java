@@ -16,16 +16,16 @@ import java.util.ArrayList;
 
 public class Main {
     /*Lista que contiene los usuarios que se registren en el sistema
-    y donde verificare si es que estos existen al momento de iniciar sesión
+    y donde se verifica si es que existen al momento de iniciar sesión
     */
     public static ArrayList <Usuario> usuariosRegistrados=new ArrayList<>();
-    //Objeto scanner que usaré en todos mis métodos relacionados al main
+    //Objeto scanner qa usarse en todos los métodos relacionados con el main
     public static Scanner sc=new Scanner(System.in);
     
 
 
     public static void main(String[] args) {
-        /*Leo mi archivo en la ruta asigna, corro el lector, generando así mis listas
+        /*Lee el archivo en la ruta asigna, corre el lector, generando así las listas
         en la clase libreria
         */
         LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
