@@ -75,7 +75,8 @@ public class NotificacionPropiedadObservable extends Notificacion {
         }        
         return listaResultante;
     }
-    
+    // Método que diferencia entre los tipos de propiedades observables
+    // se los clasifica por su tipo de dato 
     public String elegirPropiedad() {  
         
         String propiedadElegida;
