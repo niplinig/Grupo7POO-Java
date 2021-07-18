@@ -22,12 +22,6 @@ public class NotificacionPropiedadObservable extends Notificacion {
         this.min=min;
                 
     }
-    /*  
-    public NotificacionPropiedadObservable(String nombre, String propiedad, String valorBoleano) {
-        super(nombre);
-        this.propiedad = propiedad;
-        this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
-    }*/
     
  
     public ArrayList<Observacion> establecerRango(Usuario usuario) {
