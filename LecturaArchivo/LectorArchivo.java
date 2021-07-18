@@ -31,7 +31,7 @@ public class LectorArchivo {
                 while (miEscaner.hasNextLine()) {
                     String linea = miEscaner.nextLine();
                     String [] lineaSeparada = separarLinea(linea);
-                    String codigo=lineaSeparada[1].substring(1,lineaSeparada[1].length()-1);
+                    String codigo=lineaSeparada[1].substring(2,lineaSeparada[1].length()-2);
                     
                     Conjunto conjunto = Conjunto.convertirTexto(lineaSeparada[2],
                             lineaSeparada[3],
