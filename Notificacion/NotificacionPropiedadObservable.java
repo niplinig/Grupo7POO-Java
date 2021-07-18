@@ -2,18 +2,21 @@ package main;
 
 import java.util.ArrayList;
 
-public class NotificacionPropiedadObservable extends Notificacion{
+public class NotificacionPropiedadObservable extends Notificacion {
     // La etiqueta nos dice el grado de importancia de la notificacion
     private String etiqueta;
     // La propiedad que el usuario selecciona de las multiples observaciones
     private String propiedad;
+    
+    private boolean propiedadBooleana;
+    
     // El valor máximo
     private int maximo = 0;
     // El valor mínimo
     private int minimo = 0;
     
     // Constructor completo, inicializa los atributos del rango
-    public NotificacionPropiedadObservable(String nombre, int min, String etiqueta, String propetie, int max)  {
+    public NotificacionPropiedadObservable(String nombre, int min, String etiqueta, String propetie, int max) {
         super(nombre);
         this.etiqueta = etiqueta;
         this.propiedad = propetie;
@@ -32,14 +35,22 @@ public class NotificacionPropiedadObservable extends Notificacion{
     
     // Constructor con el máximo valor, inicializa solo el máximo valor
     // Para realizar búsquedas con valores menores al máximo
-    public NotificacionPropiedadObservable(String nombre, String etiqueta, String propetie, int max){
+    public NotificacionPropiedadObservable(String nombre, String etiqueta, String propetie, int max) {
         super(nombre);
         this.etiqueta = etiqueta;
         this.propiedad = propetie;
         this.maximo = max;
     }
     
+    public NotificacionPropiedadObservable(String nombre, String etiqueta, String propiedad, String valorBoleano) {
+        super(nombre);
+        this.etiqueta = etiqueta;
+        this.propiedad = propiedad;
+        this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
+    }
+    
     public ArrayList<Observacion> aplicarNPO(Usuario usuario) {
+        
         ArrayList <Observacion> listaResultante = new ArrayList<>();
         
         String propiedaElegida = this.elegirPropiedad();
@@ -79,7 +90,7 @@ public class NotificacionPropiedadObservable extends Notificacion{
 
                     for (Observacion observacion: dispositivos.listaObservaciones) {
 
-                        if (observacion.getConjunto().getPropiedadBoolean(propiedad) == true) {
+                        if (observacion.getConjunto().getPropiedadBoolean(propiedad) == propiedadBooleana) {
 
                             listaResultante.add(observacion);
                         }
