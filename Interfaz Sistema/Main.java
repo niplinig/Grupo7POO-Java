@@ -35,11 +35,7 @@ public class Main {
         y una lista que posee todos los códigos de los dispositivos (importante para realizar 
         validaciones)
         */
-        for(String s: Libreria.listaCodigoDispositivos){
-            System.out.println(s);
-        }
-    
-                   
+                  
         
         
         //Sección de la interfaz para el ingreso al sistema
