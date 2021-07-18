@@ -23,7 +23,12 @@ public class NotificacionPropiedadObservable extends Notificacion {
                 
     }
     
- 
+    public NotificacionPropiedadObservable(String nombre, String propiedad, String valorBoleano) {
+        super(nombre);
+        this.propiedad = propiedad;
+        this.propiedadBooleana = Boolean.parseBoolean(valorBoleano);
+    }
+    
     public ArrayList<Observacion> establecerRango(Usuario usuario) {
         
         ArrayList <Observacion> listaResultante = new ArrayList<>();
@@ -75,8 +80,7 @@ public class NotificacionPropiedadObservable extends Notificacion {
         }        
         return listaResultante;
     }
-    // Método que diferencia entre los tipos de propiedades observables
-    // se los clasifica por su tipo de dato 
+    
     public String elegirPropiedad() {  
         
         String propiedadElegida;
