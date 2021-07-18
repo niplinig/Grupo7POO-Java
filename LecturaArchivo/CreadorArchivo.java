@@ -19,10 +19,10 @@ public class CreadorArchivo {
             pw.flush();
             pw.close();
             
-            JOptionPane.showMessageDialog(null,"Archivo guardado");
+            
         }
         catch(Exception E) {
-            JOptionPane.showMessageDialog(null,"Archivo no guardado");
+            System.out.println("Archivo no creado");
             
         }
     }
