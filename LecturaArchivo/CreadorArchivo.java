@@ -6,8 +6,6 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 public class CreadorArchivo {
-    public String texto;
-    public String nombre;
     
     public static void guardarArchivo(String textoAEscribir,String nombre) {
         try {
