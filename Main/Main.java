@@ -321,7 +321,7 @@ public class Main {
         LocalDate fechaF=LocalDate.of(aniof,mesf,diaf);
         
         for(Notificacion n: u.getListNotis()){
-            if(n instanceof NotificacionDispositivo){
+            if(n instanceof NotificacionDispositivo && n.getStatus()){
                 NotificacionDispositivo n2=(NotificacionDispositivo) n;
                 Dispositivo d=n2.getDispositivo();
                 ArrayList <Observacion> validas=new ArrayList<>();
@@ -342,7 +342,7 @@ public class Main {
                 
                 
                 
-            }else if(n instanceof NotificacionPropiedadObservable){
+            }else if(n instanceof NotificacionPropiedadObservable && n.getStatus()){
                 NotificacionPropiedadObservable n2=(NotificacionPropiedadObservable) n;
                 ArrayList<Observacion> datos=n2.establecerRango(u);
                 
