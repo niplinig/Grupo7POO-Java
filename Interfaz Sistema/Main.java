@@ -162,10 +162,10 @@ public class Main {
     }
     }
 
-    /*Método para agregar un dispositivo a los asociados a un usuario
-    * le pregunto cuantos quiere agregar al usuario y lo ejecuto
-    Verifico que el id que me de sea correcto y posterior busco el dispositivo
-    con ese ID y lo agrego a la lista de Usuario
+    /*Método para agregar un dispositivo a los asociados a un usuario.
+    Se pregunta cuantos dispositivos quiere agregar al usuario y se ejecuta
+    Se verifica que el id que ingresado sea correcto y posterior se busca el dispositivo
+    con ese ID y se agrega a la lista de Usuario
     */
     public static void agregarDispositivos(Usuario u, ArrayList <String >idDisp, ArrayList <Dispositivo> d){
         System.out.println("Cuantos dispositivos desea agregar?: ");
