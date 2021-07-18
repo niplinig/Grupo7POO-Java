@@ -12,8 +12,6 @@ public class LectorArchivo {
     Scanner miEscaner;
     private final String ruta;
     
-    
-    // Constructor que recibe la ruta de archivo
     public LectorArchivo(String rutaDelArchivo) {
         miArchivo = new File(rutaDelArchivo);
         this.ruta = rutaDelArchivo;
@@ -33,6 +31,7 @@ public class LectorArchivo {
                 while (miEscaner.hasNextLine()) {
                     String linea = miEscaner.nextLine();
                     String [] lineaSeparada = separarLinea(linea);
+                    String codigo=lineaSeparada[1].substring(1,lineaSeparada[1].length()-1);
                     
                     Conjunto conjunto = Conjunto.convertirTexto(lineaSeparada[2],
                             lineaSeparada[3],
@@ -43,7 +42,7 @@ public class LectorArchivo {
                             lineaSeparada[8]);
                     
                     Observacion observacion = new Observacion(conjunto, lineaSeparada[9]);
-                    Dispositivo.crearDispositivo(lineaSeparada[1], observacion);
+                    Dispositivo.crearDispositivo(codigo, observacion);
                     /*
                         Libreria.listaDispositivos.add(dispositivo);                   
                         Libreria.listaCodigoDispositivos.add(lineaSeparada[1]);
@@ -66,4 +65,6 @@ public class LectorArchivo {
     }
     
 }
+
+
     
