@@ -95,7 +95,7 @@ public class Main {
         //Le pido al usuario que inrgrese su ID
         System.out.println("Ingrese su id:");
         String id=sc.nextLine();
-        /*Busca si el usuario está registrado si lo esta retorna el usuario,
+        /*Busca si el usuario está registrado, si lo esta retorna el usuario
         para ello se recorren los usuarios registrados y se ccomparan las id, 
         si existe retorna dicho usuario para tratarlo como variable local.
         */
@@ -115,9 +115,9 @@ public class Main {
         return null;
     }
     
-    //Hasta aqui van las funciones de Acceso al sistema
+   
     
-    /*Una vez iniciado sesión preciso de crear 3 métodos:
+    /*Una vez iniciado sesión preciso se rquieren 3 métodos:
     1: Programar Notificaciones
     2: Generar Notificaciones
     3: Desactivar Notificaciones
