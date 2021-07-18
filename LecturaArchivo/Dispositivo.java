@@ -41,6 +41,10 @@ public class Dispositivo {
     public String getCodigo() {
         return this.codigo;
     }
+    // Método para crear un nuevo Dispositivo 
+    // Recibe un codigo y la observacion 
+    // En caso de exitir en la Libreria se busca y se retorna
+    // En caso de no existir se genera un nuevo dispositivo
     
     public static Dispositivo crearDispositivo(String codigo, Observacion observacion) {
         if (Libreria.listaCodigoDispositivos.contains(codigo)) {
