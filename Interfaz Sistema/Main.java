@@ -25,7 +25,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        /*Leo mi archivo en la ruta asigna, corro el lector, generando así mis listas
+        /*Lee el archivo en la ruta asigna, corre el lector, generando así las listas
         en la clase libreria
         */
         LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
