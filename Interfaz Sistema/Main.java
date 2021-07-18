@@ -31,8 +31,8 @@ public class Main {
         LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
         miArchivo.LeerArchivo();
         
-        /*Traigo desde libreria mis listas que poseen los dispositivos y sus observaciones,
-        y una lista que posee todos los códigos de los dispositivos (importante para 
+        /*Se trae desde libreria las listas que poseen los dispositivos y sus observaciones,
+        y una lista que posee todos los códigos de los dispositivos (importante para realizar 
         validaciones)
         */
                    
