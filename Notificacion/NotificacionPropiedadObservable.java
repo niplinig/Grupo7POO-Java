@@ -23,7 +23,7 @@ public class NotificacionPropiedadObservable extends Notificacion {
                 
     }
     
-    // Método que recibe un Usuario
+    // Método que recibe un Usuario.
     // Primero revisa que la lista de dispositivos del Usuario no esté vacia
     // Despues se valida si es una propiedad double o boolean
     // Una vez validad la propiedad se realiza un recorrido de los dispostivos
@@ -82,7 +82,7 @@ public class NotificacionPropiedadObservable extends Notificacion {
         return listaResultante;
     }
     // Método que diferencia entre los tipos de propiedades observables
-    // se los clasifica por su tipo de dato 
+    // Se los clasifica por su tipo de dato. 
     public String elegirPropiedad() {  
         
         String propiedadElegida;
