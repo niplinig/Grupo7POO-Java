@@ -8,13 +8,14 @@ import java.util.ArrayList;
 
 public class NotificacionDispositivo extends Notificacion{
     
-    Dispositivo dispositivo;
+    private Dispositivo dispositivo;
+    private String idDispositivo;
     
-    // Sobrecarga del constructor NotificacionDispositivo
     public NotificacionDispositivo(String nombre, String codigoDispositivo) {
         super(nombre);
-        int indice = Libreria.listaDispositivos.indexOf(codigoDispositivo);
-        this.dispositivo = Libreria.listaDispositivos.get(indice);
+        this.dispositivo=encontrarDispositivo(codigoDispositivo);
+        this.idDispositivo=codigoDispositivo;
+        
     }
     
     public NotificacionDispositivo(String nombre, Dispositivo dispositivo) {
@@ -28,6 +29,12 @@ public class NotificacionDispositivo extends Notificacion{
 
     public Dispositivo getDispositivo() {
         return dispositivo;
+    }
+    public Dispositivo encontrarDispositivo(String codigo){
+        int indice=Libreria.listaCodigoDispositivos.indexOf(codigo);
+        
+        return Libreria.listaDispositivos.get(indice);
+            
     }
     
     
