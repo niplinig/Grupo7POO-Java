@@ -1,3 +1,4 @@
+
 package Usuario;
 
 import Notificacion.Notificacion;
@@ -8,13 +9,13 @@ public class Usuario {
     private ArrayList <Dispositivo> dispAsociados=new ArrayList<>();
     private ArrayList <Notificacion> nProgramadas=new ArrayList<>();
     
-    /*Constructor, solo se necesita el id para crear un usuario (Se llama en
+    /*Constructor, solo preciso del id para crear un usuario (A se llamado en
     Registrarse()
     */
     public Usuario(String id){
         this.id=id;
     }
-    
+    //Getters de los atributos de la clase Usuario
      public String getID(){
         return id;
     }
