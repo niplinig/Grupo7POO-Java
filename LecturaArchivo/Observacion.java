@@ -1,5 +1,6 @@
-package main;
+package LecturaArchivo;
 
+import LecturaArchivo.Conjunto;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
@@ -57,3 +58,4 @@ public class Observacion {
     }
     
 }
+
