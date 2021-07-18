@@ -7,7 +7,7 @@ import java.util.stream.Collector;
 
 public class Dispositivo {
     
-    // Un dispositivo cuenta con un código y una Lista de Observaciones
+    // Un dispositivo cuenta con un código y una Lista de Observaciones.
     private String codigo;
     public ArrayList <Observacion> listaObservaciones = new ArrayList<>();
     
