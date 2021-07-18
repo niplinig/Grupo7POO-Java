@@ -1,5 +1,16 @@
 package main;
 
+import Usuario.Usuario;
+import Notificacion.NotificacionPropiedadObservable;
+import Notificacion.NotificacionDispositivo;
+import Notificacion.Notificacion;
+import LecturaArchivo.Observacion;
+import LecturaArchivo.Libreria;
+import LecturaArchivo.LectorArchivo;
+import LecturaArchivo.Dispositivo;
+import LecturaArchivo.CreadorArchivo;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -17,18 +28,20 @@ public class Main {
         /*Leo mi archivo en la ruta asigna, corro el lector, generando así mis listas
         en la clase libreria
         */
-        LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\iot_telemetry_data_new.csv");
+        LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
         miArchivo.LeerArchivo();
         
         /*Traigo desde libreria mis listas que poseen los dispositivos y sus observaciones,
         y una lista que posee todos los códigos de los dispositivos (importante para 
         validaciones)
         */
-        ArrayList<Dispositivo> dispositivos=Libreria.listaDispositivos;
-        ArrayList<String> codDispositivos=Libreria.listaCodigoDispositivos;
+                   
         
         
+        //Sección de la interfaz para el ingreso al sistema
+        System.out.println("BIENVENIDO - SISTEMA DE EMULACIÓN DE NOTIFICACIONES");
         Usuario u=Acceso();
+        Menu(u,Libreria.listaCodigoDispositivos,Libreria.listaDispositivos);
                 
     }
     
@@ -40,7 +53,7 @@ public class Main {
     public static Usuario Acceso(){
         System.out.println("1-Registro de Usuario");
         System.out.println("2-Inicio Sesión");
-        System.out.print("Opcion:");
+        System.out.println("Opcion:");
         String opcion = sc.nextLine();
         Usuario u=null;
         switch(opcion){
@@ -88,6 +101,7 @@ public class Main {
         */
         for(Usuario u:usuariosRegistrados){
             if(u.getID().equals(id)){
+                System.out.println("Ingreso Exitoso");
                 System.out.println();
                 return u;
             }           
@@ -100,6 +114,7 @@ public class Main {
         //Retorno un null
         return null;
     }
+    
     //Hasta aqui van las funciones de Acceso al sistema
     
     /*Una vez iniciado sesión preciso de crear 3 métodos:
@@ -112,7 +127,7 @@ public class Main {
     5: Cerrar Sesión (Acaba el programa) necesario para la condición para loopear este menú
     */
     
-    public static void Menú(Usuario u, ArrayList <String> ids, ArrayList <Dispositivo> d){ /*El recibir este parámetro hace que todas las acciones
+    public static void Menu(Usuario u, ArrayList <String> ids, ArrayList <Dispositivo> d){ /*El recibir este parámetro hace que todas las acciones
         se redirección hacia el usuario u*/
         String opcion=" ";
         while(!opcion.equals(5)){
@@ -128,10 +143,10 @@ public class Main {
         opcion=sc.nextLine();
         switch(opcion){
             case "1":
-                //programarNoti();
+                programarNoti(u,ids);
                 break;
             case "2":
-                //Generar Notificaciones():
+                generarNotificaciones(u);
                 break;
             case "3":
                 desactivarNotificaciones(u);
@@ -154,8 +169,9 @@ public class Main {
     */
     public static void agregarDispositivos(Usuario u, ArrayList <String >idDisp, ArrayList <Dispositivo> d){
         System.out.println("Cuantos dispositivos desea agregar?: ");
-        int cant=sc.nextInt();
-        for(int i=0;i<cant;i++){
+        String cant=sc.nextLine();
+        int i =Integer.parseInt(cant);
+        while(i!=0){
             System.out.println("Ingrese el ID del dispositivo");
             String id=sc.nextLine();
             if(idDisp.contains(id)){
@@ -168,6 +184,7 @@ public class Main {
             }else{
                 System.out.println("Dispositivo no encontrado");
             }
+            i--;
         }            
     }
     
@@ -183,7 +200,116 @@ public class Main {
         }
         
     }
-    
-    
+    public static void programarNoti(Usuario u, ArrayList <String> ids){
+        System.out.println("Ingrese el nombre de la notificacion");
+        String nombre=sc.nextLine();
+        
+        System.out.println("Tipo de notificación");
+        System.out.println("1-Por Dispositivo");
+        System.out.println("2-Por Propiedad Observable");
+        String opcion=sc.nextLine();
+        
+        switch(opcion){
+            case "1":
+                System.out.println("Ingrese el ID del dispositivo: ");
+                String id=sc.nextLine();
+                if(ids.contains(id)){
+                    Notificacion n1=new NotificacionDispositivo(nombre,id);
+                    u.añadirNoti(n1);
+                }else{
+                    System.out.println("Id incorrecto: ");
+                }
+                break;
+            case "2":
+                ArrayList <String> propiedades=new ArrayList<>();
+                propiedades.add("co");
+                propiedades.add("humidity");
+                propiedades.add("lpg");
+                propiedades.add("smoke");
+                propiedades.add("temp");
+                propiedades.add("light");
+                propiedades.add("motion");
+                System.out.println("Ingrese la propiedad");
+                String propiedad=sc.nextLine();
+                if(propiedades.contains(propiedad)){
+                    System.out.println("Ingrese su etiqueta: ");
+                    String etiqueta=sc.nextLine();
+                    System.out.println("Ingrese valor máx: ");
+                    String max=sc.nextLine();
+                    System.out.println("Ingrese valor min: ");
+                    String min=sc.nextLine();
+                    Notificacion n2=new NotificacionPropiedadObservable(nombre,propiedad,Double.parseDouble(min),Double.parseDouble(max));
+                    u.añadirNoti(n2);
+
+                }else{
+                    System.out.println("Propiedad no válida");
+                }
+                               
+                break;
+        }
+        
        
-}
+        
+        
+        
+    }
+    
+    public static void generarNotificaciones(Usuario u){
+        System.out.println("Ingrese la fecha inicial");
+        System.out.println("Dia: ");
+        int diaI=sc.nextInt();
+        System.out.println("Mes: ");
+        int mesI=sc.nextInt();
+        System.out.println("Año: ");
+        int anioI=sc.nextInt();
+        
+        LocalDate fechaI=LocalDate.of(anioI,mesI,diaI);
+        
+        System.out.println("Ingrese la fecha final");
+        System.out.println("Dia: ");
+        int diaf=sc.nextInt();
+        System.out.println("Mes: ");
+        int mesf=sc.nextInt();
+        System.out.println("Año: ");
+        int aniof=sc.nextInt();
+        
+        LocalDate fechaF=LocalDate.of(aniof,mesf,diaf);
+        
+        for(Notificacion n: u.getListNotis()){
+            if(n instanceof NotificacionDispositivo){
+                NotificacionDispositivo n2=(NotificacionDispositivo) n;
+                Dispositivo d=n2.getDispositivo();
+                ArrayList <Observacion> validas=new ArrayList<>();
+                for(Observacion o: d.listaObservaciones){
+                    if(o.getFecha().isAfter(fechaI) && o.getFecha().isBefore(fechaF)){
+                        validas.add(o);
+                    }
+
+                }
+                String texto="";
+                for(Observacion o: validas){
+                    texto+=o.toString()+'\n';
+                    
+                }
+                CreadorArchivo.guardarArchivo(texto, n.getNombre()+".txt");
+                
+            }else if(n instanceof NotificacionPropiedadObservable){
+                NotificacionPropiedadObservable n2=(NotificacionPropiedadObservable) n;
+                ArrayList<Observacion> datos=n2.establecerRango(u);
+                
+                String texto="";
+                for(Observacion o: datos){
+                    texto+=o.toString()+'\n';
+                }
+                CreadorArchivo.guardarArchivo(texto, n.getNombre()+".txt");
+                
+            }
+       }
+   }
+            
+            
+            
+        
+        
+        }
+    
