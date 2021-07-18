@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 public class Observacion {
     
-    // Una observacion tiene una propiedad y una fecha
+    // Una observacion tiene una propiedad y una fecha.
     private Conjunto conjunto;
     private LocalDate fecha;
     
