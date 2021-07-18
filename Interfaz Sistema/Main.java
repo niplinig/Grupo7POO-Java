@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Main {
     /*Lista que contiene los usuarios que se registren en el sistema
-    y donde verificare si es que estos existen al momento de iniciar sesión
+    y donde se verifica si es que existen al momento de iniciar sesión
     */
     public static ArrayList <Usuario> usuariosRegistrados=new ArrayList<>();
     //Objeto scanner que usaré en todos mis métodos relacionados al main
