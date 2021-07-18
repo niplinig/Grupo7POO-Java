@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Main {
     /*Lista que contiene los usuarios que se registren en el sistema
-    y donde se verifica si es que existen al momento de iniciar sesión
+    y donde verificare si es que estos existen al momento de iniciar sesión
     */
     public static ArrayList <Usuario> usuariosRegistrados=new ArrayList<>();
     //Objeto scanner que usaré en todos mis métodos relacionados al main
@@ -25,16 +25,20 @@ public class Main {
 
 
     public static void main(String[] args) {
-        /*Lee el archivo en la ruta asigna, corre el lector, generando así las listas
+        /*Leo mi archivo en la ruta asigna, corro el lector, generando así mis listas
         en la clase libreria
         */
         LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
         miArchivo.LeerArchivo();
         
-        /*Se trae desde libreria las listas que poseen los dispositivos y sus observaciones,
-        y una lista que posee todos los códigos de los dispositivos (importante para realizar 
+        /*Traigo desde libreria mis listas que poseen los dispositivos y sus observaciones,
+        y una lista que posee todos los códigos de los dispositivos (importante para 
         validaciones)
         */
+        for(String s: Libreria.listaCodigoDispositivos){
+            System.out.println(s);
+        }
+    
                    
         
         
@@ -48,7 +52,7 @@ public class Main {
     
     
     /*Acceso es el método que le permite al usuario elegir entre si desea
-    registrarse o iniciar sesión al momento que de correr el programa
+    registrarse o iniciar sesión al momento que se corre el programa
     */
     public static Usuario Acceso(){
         System.out.println("1-Registro de Usuario");
@@ -61,15 +65,15 @@ public class Main {
         Registrarse();
         break;
         case "2":
-        /*Retorno un usuario U dado que es aquel sobre el cual se va a trabajar,
-        para vincular sus dispositivos favoritos y las notificaciones que el quiera generar. 
+        /*Retorno un usuario U dado que es aquel sobre el cual trabajaré,
+        para vincular sus dispositivos favoritos a él y las notificaciones que el genere. 
         */
         u=IniciarSesion();
         break;
         }
-        /*Si el usuario elige la opción de iniciar sesión, y no se encontra dicho usuario
+        /*Si el usuario eligió la opción de iniciar sesión, y no se encontró dicho usuario
         IniciarSesion retorna null, mientras U no sea un objeto en condiciones, mediante
-        recursividad se sigue ejecutando Acceso(), hasta que se registre un usuario e ingrese
+        recursividad sigo ejecutando Acceso(), hasta que se registre un usuario y se ingrese
         de manera correcta.
         */
         while(u==null){
@@ -95,9 +99,9 @@ public class Main {
         //Le pido al usuario que inrgrese su ID
         System.out.println("Ingrese su id:");
         String id=sc.nextLine();
-        /*Busca si el usuario está registrado, si lo esta retorna el usuario
-        para ello se recorren los usuarios registrados y se ccomparan las id, 
-        si existe retorna dicho usuario para tratarlo como variable local.
+        /*Busco si esta registrado si lo esta retorno el usuario
+        para ello recorro mis usuarios registrados y comparo los id, si coincide con alguno
+        existe y retorno dicho usuario para tratarlo como variable local.
         */
         for(Usuario u:usuariosRegistrados){
             if(u.getID().equals(id)){
@@ -115,9 +119,9 @@ public class Main {
         return null;
     }
     
-   
+    //Hasta aqui van las funciones de Acceso al sistema
     
-    /*Una vez iniciado sesión preciso se rquieren 3 métodos:
+    /*Una vez iniciado sesión preciso de crear 3 métodos:
     1: Programar Notificaciones
     2: Generar Notificaciones
     3: Desactivar Notificaciones
@@ -130,13 +134,12 @@ public class Main {
     public static void Menu(Usuario u, ArrayList <String> ids, ArrayList <Dispositivo> d){ /*El recibir este parámetro hace que todas las acciones
         se redirección hacia el usuario u*/
         String opcion=" ";
-        while(!opcion.equals(5)){
+        while(!opcion.equals(2)){
         //Presento el menu disponible al usuario despues de iniciar sesión
         System.out.println("1: Programar Notificaciones");
         System.out.println("2: Generar Notificaciones");
         System.out.println("3: Desactivar Notificaciones");
         System.out.println("4: Agregar Dispositivos Favoritos");
-        System.out.println("5: Cerrar Sesión"); //Si escogo la opción cerrar sesión, se termina el programa
         System.out.println("Opcion: ");
         
         //El usuario elige su opción
@@ -156,16 +159,17 @@ public class Main {
                 break;
             
         }
+            System.out.println();
                 
         
         
     }
     }
 
-    /*Método para agregar un dispositivo a los asociados a un usuario.
-    Se pregunta cuantos dispositivos quiere agregar al usuario y se ejecuta
-    Se verifica que el id que ingresado sea correcto y posterior se busca el dispositivo
-    con ese ID y se agrega a la lista de Usuario
+    /*Método para agregar un dispositivo a los asociados a un usuario
+    * le pregunto cuantos quiere agregar al usuario y lo ejecuto
+    Verifico que el id que me de sea correcto y posterior busco el dispositivo
+    con ese ID y lo agrego a la lista de Usuario
     */
     public static void agregarDispositivos(Usuario u, ArrayList <String >idDisp, ArrayList <Dispositivo> d){
         System.out.println("Cuantos dispositivos desea agregar?: ");
@@ -175,10 +179,13 @@ public class Main {
             System.out.println("Ingrese el ID del dispositivo");
             String id=sc.nextLine();
             if(idDisp.contains(id)){
-                for(Dispositivo dp: d){
+                for(Dispositivo dp:d){
                     if(dp.getCodigo().equals(id)){
-                        u.vincularDispositivo(dp);
-                        System.out.println("El dispositivo a sido agregado");
+                    u.vincularDispositivo(dp);
+                    System.out.println("El dispositivo a sido agregado");
+                        
+                        
+                        
                     }                 
                 }
             }else{
@@ -187,13 +194,9 @@ public class Main {
             i--;
         }            
     }
-    /*Método para desactivar una notificacion que el usuiario ingrese por
-    teclado, se verifica si la notificación existe en una lista de 
-    notifiaciones para desactivarla.
-    */
     
     public static void desactivarNotificaciones(Usuario u){
-        System.out.println("Ingrese el nombre de la notificación a desactivar: ");
+        System.out.println("Ingrese el nombre de la notificación a desactivar");
         String nombre=sc.nextLine();
         for(Object n: u.getListNotis()){
             Notificacion n2=(Notificacion) n;
@@ -202,19 +205,11 @@ public class Main {
             }
             
         }
-         
+        System.out.println("Desactivada correctamente");
+        
     }
-    /*Método para que el usuario pueda programar una notifiacion, se 
-    solicita un nombre para la misma y luego se le pregunta qué tipo 
-    de notifiacion quiere añadir.
-    En caso de ser "Por Dispositivo" se solicita un ID del dispositivo y se crea
-    una nueva notificacion con el nombre de notifiacion y el ID. Si es "Por Propiedad
-    Observable" se le solicita una propiedad observable, una etiqueta para ser clasificada
-    y valores para establecer un rango maximo y minimo. En ambos casos se
-    realiza una validacion de ID o propiedad observable respectivamente.
-    */
-    public static void programarNoti(Usuario u, ArrayList <String> ids){
-        System.out.println("Ingrese el nombre de la notificacion: ");
+    public static void programarNoti(Usuario u, ArrayList <String> listaCodigosDispositivos){
+        System.out.println("Ingrese el nombre de la notificacion");
         String nombre=sc.nextLine();
         
         System.out.println("Tipo de notificación");
@@ -226,22 +221,26 @@ public class Main {
             case "1":
                 System.out.println("Ingrese el ID del dispositivo: ");
                 String id=sc.nextLine();
-                if(ids.contains(id)){
-                    Notificacion n1=new NotificacionDispositivo(nombre,id);
+                Notificacion n1;
+                if(listaCodigosDispositivos.contains(id)){
+                    
+                    n1=new NotificacionDispositivo(nombre,id);
                     u.añadirNoti(n1);
+                    System.out.println("Notificacion Agregada");
                 }else{
-                    System.out.println("Id incorrecto: ");
+                    System.out.println("Id incorrecto");
                 }
                 break;
             case "2":
                 ArrayList <String> propiedades=new ArrayList<>();
+                ArrayList <String> propiedadesBooleanas=new ArrayList<>();
                 propiedades.add("co");
                 propiedades.add("humidity");
                 propiedades.add("lpg");
                 propiedades.add("smoke");
                 propiedades.add("temp");
-                propiedades.add("light");
-                propiedades.add("motion");
+                propiedadesBooleanas.add("light");
+                propiedadesBooleanas.add("motion");
                 System.out.println("Ingrese la propiedad");
                 String propiedad=sc.nextLine();
                 if(propiedades.contains(propiedad)){
@@ -253,7 +252,28 @@ public class Main {
                     String min=sc.nextLine();
                     Notificacion n2=new NotificacionPropiedadObservable(nombre,propiedad,Double.parseDouble(min),Double.parseDouble(max));
                     u.añadirNoti(n2);
+                    
+                    System.out.println("Notificacion Agregada");
 
+                }else if(propiedadesBooleanas.contains(propiedad)){
+                    System.out.println("Ingrese su etiqueta: ");
+                    String etiqueta=sc.nextLine();
+                    System.out.println("Valor True o False");
+                    String valor=sc.nextLine();
+                    valor=valor.toLowerCase();
+                    if(valor.equals("true")){
+                        
+                        Notificacion n=new NotificacionPropiedadObservable(nombre,propiedad,valor);
+                        u.añadirNoti(n);
+                        System.out.println("Notificacion Agregada");
+                        
+                    }else if(valor.equals("false")){
+                        Notificacion n=new NotificacionPropiedadObservable(nombre,propiedad,valor);
+                        u.añadirNoti(n);
+                        System.out.println("Notificacion Agregada");
+                    }
+                    
+                    
                 }else{
                     System.out.println("Propiedad no válida");
                 }
@@ -266,9 +286,7 @@ public class Main {
         
         
     }
-     /*Método para generar un archivo con las notificaciones que pertenezcan 
-     a un rango establecido de fechas por el usuario.
-    */
+    
     public static void generarNotificaciones(Usuario u){
         System.out.println("Ingrese la fecha inicial");
         System.out.println("Dia: ");
@@ -301,12 +319,16 @@ public class Main {
                     }
 
                 }
-                String texto="";
+                String texto=d.getCodigo()+'\n';
                 for(Observacion o: validas){
                     texto+=o.toString()+'\n';
                     
                 }
+                System.out.println("Notificacion creada en carpeta Proyecto de NetBeans");
                 CreadorArchivo.guardarArchivo(texto, n.getNombre()+".txt");
+                sc.close();
+                
+                
                 
             }else if(n instanceof NotificacionPropiedadObservable){
                 NotificacionPropiedadObservable n2=(NotificacionPropiedadObservable) n;
@@ -316,7 +338,9 @@ public class Main {
                 for(Observacion o: datos){
                     texto+=o.toString()+'\n';
                 }
+                System.out.println("Notificacion creada en carpeta Proyecto de NetBeans");
                 CreadorArchivo.guardarArchivo(texto, n.getNombre()+".txt");
+                sc.close();
                 
             }
        }
@@ -328,3 +352,12 @@ public class Main {
         
         }
     
+
+
+    
+    
+    
+    
+       
+
+
