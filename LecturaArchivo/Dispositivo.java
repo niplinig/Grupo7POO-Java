@@ -7,12 +7,12 @@ import java.util.stream.Collector;
 
 public class Dispositivo {
     
-    // Un dispositivo cuenta con un código y una Lista de Observaciones.
+    // Un dispositivo cuenta con un código y una Lista de Observaciones
     private String codigo;
     public ArrayList <Observacion> listaObservaciones = new ArrayList<>();
     
-    // Consturctor que recibe un código y una lista de observaciones.
-    // Inicializa los valores del codigo y el de la lista de observaciones.
+    // Consturctor que recibe un código y una lista de observaciones
+    // Inicializa los valores del codigo y el de la lista de observaciones
     public Dispositivo(String codigo, Observacion observacion) {
         this.codigo = codigo;
         listaObservaciones.add(observacion);
@@ -20,8 +20,8 @@ public class Dispositivo {
     }
     
     // Sobreescritura del Método toString()
-    // Primero se muestra el codigo del dispositivo.
-    // Despues se muestra cada una de las observaciones de la lista.
+    // Primero se muestra el codigo del dispositivo
+    // Despues se muestra cada una de las observaciones de la lista
     @Override
     public String toString() {
         String Dispositivo = this.codigo;
@@ -32,7 +32,7 @@ public class Dispositivo {
     }
     
     // Sobrecarga del Método equals()
-    // Compara si los dos dispositivos tienen el mismo código.
+    // Compara si los dos dispositivos tienen el mismo código
     public boolean equals(Dispositivo d) {
         return this.codigo.equals(d.codigo);
     }
@@ -41,10 +41,6 @@ public class Dispositivo {
     public String getCodigo() {
         return this.codigo;
     }
-    // Método para crear un nuevo Dispositivo 
-    // Recibe un codigo y la observacion 
-    // En caso de exitir en la Libreria se busca y se retorna
-    // En caso de no existir se genera un nuevo dispositivo
     
     public static Dispositivo crearDispositivo(String codigo, Observacion observacion) {
         if (Libreria.listaCodigoDispositivos.contains(codigo)) {
@@ -69,8 +65,8 @@ public class Dispositivo {
     }
      public boolean puedeSerAnadido() {
         if (Libreria.listaCodigoDispositivos.size() > 0) {
-                if (!Libreria.listaCodigoDispositivos.contains(this.getCodigo())) {
-                    Libreria.listaCodigoDispositivos.add(this.getCodigo());
+                if (!Libreria.listaCodigoDispositivos.contains(this.codigo)) {
+                    Libreria.listaCodigoDispositivos.add(this.codigo);
                     return true;
                 }
                 else {
@@ -88,4 +84,3 @@ public class Dispositivo {
     }
      
 }
-
