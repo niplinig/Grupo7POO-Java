@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Main {
     /*Lista que contiene los usuarios que se registren en el sistema
-    y donde se verifica si es que existen al momento de iniciar sesión
+    y donde se verifica si es que existen al momento de iniciar sesión.
     */
     public static ArrayList <Usuario> usuariosRegistrados=new ArrayList<>();
     //Objeto scanner qa usarse en todos los métodos relacionados con el main
@@ -26,14 +26,14 @@ public class Main {
 
     public static void main(String[] args) {
         /*Lee el archivo en la ruta asigna, corre el lector, generando así las listas
-        en la clase libreria
+        en la clase libreria.
         */
         LectorArchivo miArchivo = new LectorArchivo("C:\\Users\\ggabo\\Documents\\ESPOL\\POO\\Proyecto\\Archivo.csv");
         miArchivo.LeerArchivo();
         
         /*Se trae desde libreria las listas que poseen los dispositivos y sus observaciones,
         y una lista que posee todos los códigos de los dispositivos (importante para realizar 
-        validaciones)
+        validaciones).
         */
                   
         
@@ -48,7 +48,7 @@ public class Main {
     
     
     /*Acceso es el método que le permite al usuario elegir entre si desea
-    registrarse o iniciar sesión al momento que de correr el programa
+    registrarse o iniciar sesión al momento que de correr el programa.
     */
     public static Usuario Acceso(){
         System.out.println("1-Registro de Usuario");
