@@ -81,7 +81,7 @@ public class Main {
     }
     
     /*Registrarse crea un objeto de clase U dentro de la lista registrado,
-    gracias a esto puede hacer la validación de iniciar sesión
+    gracias a esto puede hacer la validación de iniciar sesión.
     */
     public static void Registrarse(){
         //Pido el ingreso de un string ID, con el cual crearé un objeto Usuario.
