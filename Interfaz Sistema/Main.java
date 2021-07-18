@@ -95,9 +95,9 @@ public class Main {
         //Le pido al usuario que inrgrese su ID
         System.out.println("Ingrese su id:");
         String id=sc.nextLine();
-        /*Busco si esta registrado si lo esta retorno el usuario
-        para ello recorro mis usuarios registrados y comparo los id, si coincide con alguno
-        existe y retorno dicho usuario para tratarlo como variable local.
+        /*Busca si el usuario está registrado si lo esta retorna el usuario,
+        para ello se recorren los usuarios registrados y se ccomparan las id, 
+        si existe retorna dicho usuario para tratarlo como variable local.
         */
         for(Usuario u:usuariosRegistrados){
             if(u.getID().equals(id)){
