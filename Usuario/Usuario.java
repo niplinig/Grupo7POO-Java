@@ -25,12 +25,12 @@ public class Usuario {
         return nProgramadas;
     }
     
-    //Métodos para añadir elementos a las listas objetos.
-    
+    //Métodos para añadir dispositivos a las listas de dispositivos asociados del usuario.
     public void vincularDispositivo(Dispositivo d){
         dispAsociados.add(d);
     }
     
+    // Método que añade una Notificacion a la lista de Notificaciones programadas del ususario
     public void añadirNoti(Notificacion n){
         nProgramadas.add(n);
     }
