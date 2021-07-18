@@ -1,4 +1,4 @@
-package main;
+package LecturaArchivo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,6 +16,7 @@ public class Dispositivo {
     public Dispositivo(String codigo, Observacion observacion) {
         this.codigo = codigo;
         listaObservaciones.add(observacion);
+        Libreria.anadirDispositivo(this);
     }
     
     // Sobreescritura del Método toString()
@@ -52,25 +53,7 @@ public class Dispositivo {
             return new Dispositivo(codigo, observacion);
         }
     }
-    
-    // Método que valida si el dispositivo se puede añadir a la librería de dispositivos
-    // Si el objeto ya existe en la librería no lo vuelve añadir
-    public boolean puedeSerAnadido() {
-        if (Libreria.listaCodigoDispositivos.size() > 0) {
-                if (!Libreria.listaCodigoDispositivos.contains(this.codigo)) {
-                    Libreria.listaCodigoDispositivos.add(this.codigo);
-                    return true;
-                }
-                else {
-                    return false;
-                }  
-        }
-        else {
-            Libreria.listaCodigoDispositivos.add(this.codigo);
-            return true;
-        }
-    }
-    
+
     public ArrayList <LocalDate> getFechas() {
         
         ArrayList <LocalDate> listaFechas = new ArrayList<>();
@@ -80,4 +63,25 @@ public class Dispositivo {
         }
         return listaFechas;
     }
+     public boolean puedeSerAnadido() {
+        if (Libreria.listaCodigoDispositivos.size() > 0) {
+                if (!Libreria.listaCodigoDispositivos.contains(this.getCodigo())) {
+                    Libreria.listaCodigoDispositivos.add(this.getCodigo());
+                    return true;
+                }
+                else {
+                    return false;
+                }  
+        }
+        else {
+            Libreria.listaCodigoDispositivos.add(this.getCodigo());
+            return true;
+        }
+    }
+
+    public ArrayList<Observacion> getListaObservaciones() {
+        return listaObservaciones;
+    }
+     
 }
+
