@@ -1,5 +1,7 @@
-package main;
+package LecturaArchivo;
 
+import LecturaArchivo.Dispositivo;
+import LecturaArchivo.Conjunto;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -39,8 +41,12 @@ public class LectorArchivo {
                             lineaSeparada[8]);
                     
                     Observacion observacion = new Observacion(conjunto, lineaSeparada[9]);
-                    Dispositivo dispositivo = Dispositivo.crearDispositivo(lineaSeparada[1], observacion);
-                    Libreria.listaDispositivos.add(dispositivo);
+                    Dispositivo.crearDispositivo(lineaSeparada[1], observacion);
+                    /*
+                        Libreria.listaDispositivos.add(dispositivo);                   
+                        Libreria.listaCodigoDispositivos.add(lineaSeparada[1]);
+                    */
+                        
                 }
                 miEscaner.close();
             }
@@ -58,5 +64,4 @@ public class LectorArchivo {
     }
     
 }
-
     
