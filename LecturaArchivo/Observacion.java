@@ -33,15 +33,15 @@ public class Observacion {
     
     // Constructor recibe un Conjunto de propiedades y una fecha en texto.
     // Inicializa el valor del conjunto.
-    // Utiliza el método convertirFecha() para convertir la fecha en texto a un objeto fecha
+    // Utiliza el método convertirFecha() para convertir la fecha en texto a un objeto fecha.
     public Observacion(Conjunto conjunto, String fechaTexto) {
         this.conjunto = conjunto;
         this.fecha = Observacion.convertirFecha(fechaTexto);
     }
     
     // Sobreescritura del método toString()
-    // Primero convierte el objeto fecha a texto
-    // Devuelve la fecha en texto junto con el conjunto de propiedades en texto
+    // Primero convierte el objeto fecha a texto.
+    // Devuelve la fecha en texto junto con el conjunto de propiedades en texto.
     @Override
     public String toString() {
         String fechaEnTexto = fecha.format(DateTimeFormatter.ISO_LOCAL_DATE);
