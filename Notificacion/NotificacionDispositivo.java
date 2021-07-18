@@ -10,6 +10,7 @@ public class NotificacionDispositivo extends Notificacion{
     
     Dispositivo dispositivo;
     
+    // Sobrecarga del constructor NotificacionDispositivo
     public NotificacionDispositivo(String nombre, String codigoDispositivo) {
         super(nombre);
         int indice = Libreria.listaDispositivos.indexOf(codigoDispositivo);
