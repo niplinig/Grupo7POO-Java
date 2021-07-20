@@ -1,8 +1,0 @@
-
-Las carpetas ejemplifican los paquetes del programa 
-
-Al momento de hacer substrings la cantidad de elementos a reducir por lado cambian según el sistema operativo si es Linux se reduce 1, si es windows 2.
-
-Al ser un archivo bastante grande demora el programa en compilar pero lo hace de manera correcta, esto depende del rango de fechas que provea al programa
-
-
